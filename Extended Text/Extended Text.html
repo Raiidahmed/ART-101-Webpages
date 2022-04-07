@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,user-scalable=yes">
+<style type="text/css">
+html{margin:0 auto;max-width:33em}
+body{font-family:Times New Roman, sans-serif; padding: 0 .5em 1em .5em}
+h1{color:black; font-size:150%;font-weight:700;text-transform:uppercase;
+letter-spacing:0.18em;padding:1em 0 0 0}
+h2{color:black;font-size:115%}
+h3{color:black;font-size:105%}
+p{font-size:105%;line-height:1.5em;word-spacing:-.1em}
+pre{font-size:85%;line-height:1.3em}
+ol{font-size:100%;line-height:1.5em;padding:0 0 0 1.75em}
+ul{font-size:100%;line-height:1.5em}
+.mono{max-width:10em}
+a:link{color:#900;text-decoration:none}
+a:visited {color:#900;text-decoration:none}
+img{width:100% height:auto}
+</style>
+<title>Raiid's Weekly Art 101 Blog</title>
+</head>
+
+<body>
+
+ 
+  <header>
+
+    <h1>Chapter 1</h1>
+
+    <h2>Literature Review</h2>
+
+    <h3>1.1 Methods of Image Categorization</h3>
+
+    <p>The problem of image categorization has been revolutionized in recent years with developments in graphical computing hardware. A 2012 study by Parkhi et al. [1] investigating image categorization methods for animal breeds reached an accuracy level of about 59%. This result was considered a remarkable achievement at the time, as contemporary methods were not able to reach similar accuracy levels for the breed classification problem. Just five years later, Hu et al. [2] solved a much larger image classification problem using 1000 categories with an accuracy level of 97.749%.  This dramatic leap in effectiveness for image classification is the result of a revolution in graphical computing beginning with the implementation of Deep Neural Networks (DNN) for image classification on Graphical Processing Units (GPU) created by Ciregan et al. [3]. This approach used a hierarchal system similar to neurons and synapses in the brain. Images are separated into small layers, which are passed to individual functions with random initial weights and verified using an indexed control set. Figure 1 illustrates how these weights would be arranged with a function to reach an output.</p>
+
+    <p>The organization of the diagram is meant to simulate the function of a biological neuron. At the far left, inputs are received as integers representing some information about an image (color, pixel location, etc.). These inputs are multiplied by pre-determined weights relevant to the type of input that is being received. The weighted inputs are then summed together. A bias term is added to this sum, modeling the sensitivity of the neuron. Finally, an activation function is used to decide how relevant the inputs are to the classification of the image. The weights and bias are adjusted based on the accuracy of the classification in a process known as “training” [4][5].</p>
+
+    <h3>1.2 Imagenet Database</h3>
+
+    <p>An incredibly large dataset would be necessary to generalize DNNs for a wide variety of image classification applications. The ImageNet database created by Deng et al. [6] became the standard for this need, emerging as an indexed database of millions of categorized and annotated images. Thanks to this collection of images, it has been possible to adapt the use of DNNs for a wide variety of tasks. The method presented by Kieffer et al. [7] is an example of this, showing the possible application of a DNN pre-trained on the ImageNet database in the application of categorizing medical imagery. This study utilizes an image classifier designed around the ImageNet database to categorize a collection of 27,055 histopathology patches in 24 categories. The lack of existing annotated datasets for histopathology scans meant that an existing dataset like ImageNet would have to be used as a basis for training. This classifying method was able to compete with state-of-the-art methods reported in the literature for the paper [7]. In the next section, I will focus on how a similar approach can be used to categorize Synthetic Aperture Sonar (SAS) imagery based on a training set from a Microsoft Kinect.<p>
+
+    <h3>1.3 Synthetic Aperture Sonar</h3>
+
+    <p>SAS is an underwater acoustic technique with the ability to generate high quality imagery through the combination of sonar responses on a moving subject. SAS relies on the motion of a real subject to form a synthetic response with a greater spatial extent. Several modalities can be used to collect this imagery. These options are represented in Figure 2. During the summer of 2019 in the Applied Research Laboratory, Blanford et al. [8] designed a system that would be able to collect acoustic data using this technique aboveground, eliminating many of the challenges associated with collecting traditional underwater sonar responses. Recently however, the need to generate an indexed database of imagery collected by the AIRSAS has risen due to variety of projects conducted on the platform. While the cost of the AIRSAS is much less than the cost associated with collecting underwater SAS imagery, the sheer volume of scans needed to build an indexed database is impractical with the current schedule.</p>
+
+    <h3>Microsoft Kinect</h3>
+
+    <p>In this paper, the possibility of using a Microsoft Kinect to train an image classifying DNN with the purpose of classifying collected SAS responses to create an indexed dataset will be explored. The Kinect is a sensor designed for human body language recognition in the application of videogames [9]. The release of software packages has made it possible to adapt the Kinect to be used in a wide variety of research applications. The Kinect itself harbors a depth sensor, a color camera, and an array of microphones allowing it to collect optical imagery and depth maps. Depth maps are a way to represent imagery based on the distance of an object from a sensor. Larger distances are shown with lighter colors. Figure 3 illustrates an example of a depth map. Previous studies have shown the effectiveness of using the Kinect as a gesture recognition tool adaptable for general purposes outside of videogames. Furthermore, an experiment by Bhattacharya et al. [10] at the Fayetteville State University has demonstrated an example of using the Kinect in conjunction with an image classifier to recognize gestures used in aircraft marshalling. In this experiment, I aim to use the depth maps obtained by the Kinect to train a classifier on a controlled image set.</p>
+
+    <h3>BIBLIOGRAPHY</h3>
+
+    </p>[1] O. M. Parkhi, A. Vedaldi, A. Zisserman, and C. V. Jawahar, “Cats and dogs,” Proc. IEEE Comput. Soc. Conf. Comput. Vis. Pattern Recognit., pp. 3498–3505, 2012, doi: 10.1109/CVPR.2012.6248092.</p>
+
+    <p>[2] J. Hu, L. Shen, and G. Sun, “Squeeze-and-Excitation Networks,” Proc. IEEE Comput. Soc. Conf. Comput. Vis. Pattern Recognit., pp. 7132–7141, 2018, doi: 10.1109/CVPR.2018.00745.</p>
+<p>[3] D. Ciregan, U. Meier, and J. Schmidhuber, “Multi-column deep neural networks for image classification,” Proc. IEEE Comput. Soc. Conf. Comput. Vis. Pattern Recognit., pp. 3642–3649, 2012, doi: 10.1109/CVPR.2012.6248110.</p>
+<p>[4] M. Roos, “Deep Learning versus Biological Neurons: floating-point numbers, spikes, and neurotransmitters,” Medium, 16-Aug-2019. [Online]. Available: https://towardsdatascience.com/deep-learning-versus-biological-neurons-floating-point-numbers-spikes-and-neurotransmitters-6eebfa3390e9. [Accessed: 01-Apr-2020].</p>
+<p>[5] S. E. E. Profile, “Neurocomputing,” Neurocomputing, no. May, 1990, doi: 10.1007/978-3-642-76153-9.</p>
+<p>[6] J. Deng, W. Dong, R. Socher, L.-J. Li, Kai Li, and Li Fei-Fei, “ImageNet: A large-scale hierarchical image database,” 2009 IEEE Conf. Comput. Vis. Pattern Recognit., pp. 248–255, 2010, doi: 10.1109/cvpr.2009.5206848.</p>
+<p>[7] B. Kieffer, M. Babaie, S. Kalra, and H. R. Tizhoosh, “Convolutional neural networks for histopathology image classification: Training vs. Using pre-trained networks,” Proc. 7th Int. Conf. Image Process. Theory, Tools Appl. IPTA 2017, vol. 2018-Janua, pp. 1–6, 2018, doi: 10.1109/IPTA.2017.8310149.</p>
+<p>[8] T. E. Blanford, J. D. McKay, D. C. Brown, J. D. Park, and S. F. Johnson, “Development of an in-air circular synthetic aperture sonar system as an educational tool,” 177th Meet. Acoust. Soc. Am., vol. 36, no. 3, p. 070002, 2019, doi: 10.1121/2.0001025.</p>
+<p>[9] Z. Zhang, “Microsoft kinect sensor and its effect,” IEEE Multimed., vol. 19, no. 2, pp. 4–10, 2012, doi: 10.1109/MMUL.2012.24.</p>
+<p>[10]  S. Bhattacharya, B. Czejdo, and N. Perez, “Gesture classification with machine learning using Kinect sensor data,” Proc. - 2012 3rd Int. Conf. Emerg. Appl. Inf. Technol. EAIT 2012, no. December, pp. 348–351, 2012, doi: 10.1109/EAIT.2012.6407958.</p>
+<p>[11]  K. K. Biswas and S. K. Basu, “Gesture recognition using Microsoft Kinect,” ICARA 2011 - Proc. 5th Int. Conf. Autom. Robot. Appl., no. May, pp. 100–103, 2011, doi: 10.1109/ICARA.2011.6144864.</p>
+
+
+
+
+
+
+
+
+
+  
+ 
